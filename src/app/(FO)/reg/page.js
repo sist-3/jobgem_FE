@@ -25,13 +25,13 @@ export default function Signup() {
           <div className="flex mb-6">
             <button
               className={`flex-1 py-2 ${activeTab === 'personal' ? 'border-b-2 border-blue-500 font-bold' : ''}`}
-              onClick={() => { setActiveTab('personal'); clearErrors(); }}
+              onClick={() => { setActiveTab('personal'); models.clearErrors(); }}
             >
               개인회원
             </button>
             <button
               className={`flex-1 py-2 ${activeTab === 'company' ? 'border-b-2 border-blue-500 font-bold' : ''}`}
-              onClick={() => { setActiveTab('company'); clearErrors(); }}
+              onClick={() => { setActiveTab('company'); models.clearErrors(); }}
             >
               기업회원
             </button>

@@ -1,3 +1,4 @@
+import { useFormContext } from 'react-hook-form';
 import { companyJoin } from '../action/RegAction';
 import JoinButton from '../component/JoinButton';
 import Section from '../component/Section';
@@ -5,7 +6,6 @@ import CompanyForm from '../component/form/CompanyForm';
 import CompanyManagerForm from '../component/form/CompanyManagerForm';
 import TermsAgreementForm from '../component/form/TermsAgreementForm';
 import UserForm from '../component/form/UserForm';
-import { useFormContext } from '../page';
 
 export default function CompanyReg() {
   const { handleSubmit, reset } = useFormContext();
