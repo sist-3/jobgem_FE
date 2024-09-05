@@ -14,7 +14,14 @@ export default function UserForm() {
 
     return (
         <div>
-            <Input label="이메일" name="email" validation={email_validation} />
+            <div className="flex">
+                <div className="flex-2 w-4/5 mr-2">
+                    <Input label="이메일" name="email" validation={email_validation} />
+                </div>
+                <div className="flex-1 w-1/5">
+                    <button className="w-full h-10 bg-blue-500 text-white rounded-md border">인증받기</button>
+                </div>
+            </div>
             <Input type="password" label="비밀번호" name="password" validation={password_validation} />
         </div>
     )
