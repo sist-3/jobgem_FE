@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
+import toast from "react-hot-toast";
+import { emailCheck } from "../../action/RegAction";
 import Input from "../Input";
 
 export default function UserForm() {
+    const [emailDuplicateCheck, setEmailDuplicateCheck] = useState(false);
     const { getFieldState, getValues } = useFormContext({name: "email"});
     const email_validation = {
         required: "이메일을 입력해주세요.",
@@ -18,7 +22,13 @@ export default function UserForm() {
         const emailState = getFieldState("email");
         const email = getValues("email");
         if(!emailState.error && email) {
-            console.log("이메일 인증 가능")
+            emailCheck(email).then((res) => {
+                if(res) {
+                    toast.error("이미 사용중인 이메일입니다.");
+                } else {
+                    toast.success("사용가능 한 이메일입니다.");
+                }
+            });
         }
     }
 
@@ -29,7 +39,7 @@ export default function UserForm() {
                     <Input label="이메일" name="email" validation={email_validation} />
                 </div>
                 <div className="flex-1 w-1/5">
-                    <button type="button" className="w-full h-10 bg-blue-500 text-white rounded-md border hover:bg-blue-600"
+                <button type="button" className="w-full h-10 bg-blue-500 text-white rounded-md border hover:bg-blue-600"
                     onClick={handleEmailCheck}
                     >인증받기</button>
                 </div>

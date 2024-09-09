@@ -1,7 +1,8 @@
 'use client'
 import Image from 'next/image';
 import { useState } from 'react';
-import { useForm, FormProvider } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
+import { Toaster } from 'react-hot-toast';
 import CompanyReg from './company/form';
 import PersonalReg from './personal/form';
 
@@ -18,6 +19,7 @@ export default function Signup() {
   });
 
   return (
+
     <FormProvider {...models}>
       <div className="min-h-screen flex items-center justify-center bg-gray-100 ">
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl ">
@@ -36,6 +38,7 @@ export default function Signup() {
               기업회원
             </button>
           </div>
+          <Toaster position="bottom-right"/>
           {activeTab === 'personal' && <PersonalReg />}
           {activeTab === 'company' && <CompanyReg />}
         </div>
