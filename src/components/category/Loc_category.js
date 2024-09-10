@@ -182,12 +182,6 @@ export default function page() {
 	// (지역_구,시) 초기화
 	const [loc_gusi, setLoc_gusi] = useState([]);
 	const [editRow, setEditRow] = useState('');
-
-	// const [selected, setSelected] = useState([]);
-	// const [page, setPage] = useState(0);
-	// const [rowsPerPage, setRowsPerPage] = useState(10);
-	// const [rows, setRows] = useState([]);
-	// const [visibleRows, setVisibleRows] = useState([]);
 	const [itemName, setItemName] = useState('');
 	const [editItemName, setEditItemName] = useState('');
 	const [ldIdx, setLdIdx] = useState(0);
@@ -250,6 +244,7 @@ export default function page() {
 	function editClick(id) {
 		setEditRow(id);
 		setAddClick(false);
+
 	}
 
 	function changeEditItemName(event) {
@@ -519,6 +514,7 @@ export default function page() {
 								))}
 								<TableRow style={{ height: '90px' }}>
 									<TableCell colSpan={2} style={{ padding: '12px' }}>
+
 										<Fab
 											color='primary'
 											size='small'
@@ -528,6 +524,7 @@ export default function page() {
 												setEditRow('');
 											}}
 										>
+
 											{addClick ? <RemoveOutlinedIcon /> : <AddIcon />}
 										</Fab>
 									</TableCell>
